@@ -1,5 +1,22 @@
 ### Install vue
 
+### install git cz
+
+```shell
+npm install commitizen -g
+commitizen init cz-conventional-changelog --pnpm --save-dev --save-exact
+pnpm install commitizen @digitalroute/cz-conventional-changelog-for-jira
+
+```
+
+```json
+"config": {
+    "commitizen": {
+      "path": "./node_modules/@digitalroute/cz-conventional-changelog-for-jira"
+    }
+  }
+```
+
 ### ESLint
 
 ```
