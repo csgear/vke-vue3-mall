@@ -1,16 +1,11 @@
-<script setup lang="ts">
-import Form from './components/Form.vue'
-</script>
-
 <template>
-  <div class="form">
-    <Form></Form>
+  <div>
+    <Layout />
   </div>
 </template>
 
-<style scoped>
-.form {
-  height: 400px;
-  width: 800px;
-}
-</style>
+<script setup lang="ts">
+import Layout from '@/components/Layout.vue'
+</script>
+
+<style scoped></style>
