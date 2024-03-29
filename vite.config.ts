@@ -20,6 +20,15 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'), // 把 @ 指向到 src 目录去
     },
   },
+  //scss全局变量一个配置
+  css: {
+    preprocessorOptions: {
+      scss: {
+        javascriptEnabled: true,
+        additionalData: '@import "./src/styles/variable.scss";',
+      },
+    },
+  },
   server: {
     host: true,
     port: 3002,
