@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <Layout />
-  </div>
+  <Count />
+  <LoveTalk />
 </template>
 
-<script setup lang="ts">
-import Layout from '@/components/Layout.vue'
+<script setup lang="ts" name="App">
+import Count from '@/components/Count.vue'
+import LoveTalk from '@/components/LoveTalk.vue'
 </script>
 
 <style scoped></style>

@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     About: typeof import('./src/components/About.vue')['default']
+    Count: typeof import('./src/components/Count.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
     ElCheckboxGroup: typeof import('element-plus/es')['ElCheckboxGroup']
@@ -25,6 +26,7 @@ declare module 'vue' {
     Form: typeof import('./src/components/Form.vue')['default']
     Home: typeof import('./src/components/Home.vue')['default']
     Layout: typeof import('./src/components/Layout.vue')['default']
+    LoveTalk: typeof import('./src/components/LoveTalk.vue')['default']
     News: typeof import('./src/components/News.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
