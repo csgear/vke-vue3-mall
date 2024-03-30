@@ -9,7 +9,7 @@ import type {
 enum API {
   LOGIN_URL = '/api/user/login',
   USERINFO_URL = '/api/user/info',
-  LOGOUT_URL = '/admin/acl/index/logout',
+  LOGOUT_URL = '/api/user/logout',
 }
 
 //登录接口

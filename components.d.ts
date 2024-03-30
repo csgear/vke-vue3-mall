@@ -11,6 +11,7 @@ declare module 'vue' {
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCard: typeof import('element-plus/es')['ElCard']
     ElCheckbox: (typeof import('element-plus/es'))['ElCheckbox']
     ElCheckboxGroup: (typeof import('element-plus/es'))['ElCheckboxGroup']
     ElCol: typeof import('element-plus/es')['ElCol']
@@ -22,7 +23,7 @@ declare module 'vue' {
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
     ElIcon: typeof import('element-plus/es')['ElIcon']
-    ElInput: (typeof import('element-plus/es'))['ElInput']
+    ElInput: typeof import('element-plus/es')['ElInput']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElOption: (typeof import('element-plus/es'))['ElOption']
@@ -39,5 +40,6 @@ declare module 'vue' {
     LoveTalk: typeof import('./src/components/LoveTalk.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SvgIcon: typeof import('./src/components/SvgIcon/index.vue')['default']
   }
 }
