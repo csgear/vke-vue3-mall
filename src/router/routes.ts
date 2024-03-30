@@ -219,6 +219,9 @@ export const asnycRoute = [
   },
 ]
 
+//异步路由
+export const asnycRoute = []
+
 //任意路由
 export const anyRoute = {
   //任意路由
