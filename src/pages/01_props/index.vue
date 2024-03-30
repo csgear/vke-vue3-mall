@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>01——props</div>
 </template>
 
 <script setup lang="ts" name="Props_Father"></script>

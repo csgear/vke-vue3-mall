@@ -1,33 +1,86 @@
 //创建用户相关的小仓库
 import { defineStore } from 'pinia'
-//引入接口
-
-//引入路由(常量路由)
-import { constantRoute } from '@/router/routes'
+import { reqLogin, reqUserInfo, reqLogout } from '@/api/user'
+import type {
+  loginFormData,
+  loginResponseData,
+  userInfoReponseData,
+} from '@/api/user/type'
+import type { UserState } from './types/type'
+import { SET_TOKEN, GET_TOKEN, REMOVE_TOKEN } from '@/utils/token'
+import { constantRoute, asnycRoute, anyRoute } from '@/router/routes'
 
 //引入深拷贝方法
 //@ts-expect-error
 import cloneDeep from 'lodash/cloneDeep'
-import type { UserState } from './types/type'
+import router from '@/router'
 
-//创建用户小仓库
+function filterAsyncRoute(asnycRoute: any, routes: any) {
+  return asnycRoute.filter((item: any) => {
+    if (routes.includes(item.name)) {
+      if (item.children && item.children.length > 0) {
+        item.children = filterAsyncRoute(item.children, routes)
+      }
+      return true
+    }
+  })
+}
+
 const useUserStore = defineStore('User', {
-  //小仓库存储数据地方
   state: (): UserState => {
     return {
-      token: '123',
-      menuRoutes: constantRoute, //仓库存储生成菜单需要数组(路由)
+      token: GET_TOKEN(),
+      menuRoutes: constantRoute,
       username: '',
       avatar: '',
-      //存储当前用户是否包含某一个按钮
       buttons: [],
     }
   },
-  //异步|逻辑的地方
   actions: {
-    async userLogout() {},
+    async userLogin(data: loginFormData) {
+      const result: loginResponseData = await reqLogin(data)
+      if (result.code == 200) {
+        this.token = result.data as string
+        SET_TOKEN(result.data as string)
+        return 'ok'
+      } else {
+        return Promise.reject(new Error(result.data))
+      }
+    },
+    async userInfo() {
+      const result: userInfoReponseData = await reqUserInfo()
+      if (result.code == 200) {
+        this.username = result.data.name
+        this.avatar = result.data.avatar
+        this.buttons = result.data.buttons
+        const userAsyncRoute = filterAsyncRoute(
+          cloneDeep(asnycRoute),
+          result.data.routes,
+        )
+        this.menuRoutes = [...constantRoute, ...userAsyncRoute, anyRoute]
+        ;[...userAsyncRoute, anyRoute].forEach((route: any) => {
+          router.addRoute(route)
+        })
+        return 'ok'
+      } else {
+        return Promise.reject(new Error(result.message))
+      }
+    },
+    //退出登录
+    async userLogout() {
+      const result: any = await reqLogout()
+      if (result.code == 200) {
+        this.token = ''
+        this.username = ''
+        this.avatar = ''
+        REMOVE_TOKEN()
+        return 'ok'
+      } else {
+        return Promise.reject(new Error(result.message))
+      }
+    },
   },
   getters: {},
 })
-//对外暴露获取小仓库方法
+
 export default useUserStore
