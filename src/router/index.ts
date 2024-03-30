@@ -1,24 +1,17 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/components/Home.vue'
-import About from '@/components/About.vue'
-import News from '@/components/News.vue'
-
+//通过vue-router插件实现模板路由配置
+import { createRouter, createWebHashHistory } from 'vue-router'
+import { constantRoute } from './routes'
+//创建路由器
 const router = createRouter({
-  history: createWebHistory(),
-  routes: [
-    {
-      path: '/home',
-      component: Home,
-    },
-    {
-      path: '/about',
-      component: About,
-    },
-    {
-      path: '/news',
-      component: News,
-    },
-  ],
+  //路由模式hash
+  history: createWebHashHistory(),
+  routes: constantRoute,
+  //滚动行为
+  scrollBehavior() {
+    return {
+      left: 0,
+      top: 0,
+    }
+  },
 })
-
 export default router
