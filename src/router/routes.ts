@@ -45,10 +45,6 @@ export const constantRoute = [
       icon: 'Promotion',
     },
   },
-]
-
-//异步路由
-export const asnycRoute = [
   {
     path: '/acl',
     component: () => import('@/layout/index.vue'),
@@ -90,6 +86,9 @@ export const asnycRoute = [
     ],
   },
 ]
+
+//异步路由
+export const asnycRoute = []
 
 //任意路由
 export const anyRoute = {
