@@ -6,7 +6,7 @@ import '@/styles/index.scss'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 //svg插件需要配置代码
-// import 'virtual:svg-icons-register'
+import 'virtual:svg-icons-register'
 //引入自定义插件对象:注册整个项目全局组件
 import gloalComponent from '@/components'
 //配置element-plus国际化

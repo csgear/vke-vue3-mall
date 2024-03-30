@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import path from 'path'
 
 export default defineConfig({
@@ -14,13 +15,16 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver()],
     }),
+    createSvgIconsPlugin({
+      iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+      symbolId: 'icon-[dir]-[name]',
+    }),
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'), // 把 @ 指向到 src 目录去
+      '@': path.resolve(__dirname, './src'),
     },
   },
-  //scss全局变量一个配置
   css: {
     preprocessorOptions: {
       scss: {
