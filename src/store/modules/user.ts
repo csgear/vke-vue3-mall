@@ -1,7 +1,7 @@
 //创建用户相关的小仓库
 import { defineStore } from 'pinia'
 //引入接口
-
+import { GET_TOKEN } from '@/utils/token'
 //引入路由(常量路由)
 import { constantRoute } from '@/router/routes'
 
@@ -15,7 +15,7 @@ const useUserStore = defineStore('User', {
   //小仓库存储数据地方
   state: (): UserState => {
     return {
-      token: '123',
+      token: GET_TOKEN(),
       menuRoutes: constantRoute, //仓库存储生成菜单需要数组(路由)
       username: '',
       avatar: '',

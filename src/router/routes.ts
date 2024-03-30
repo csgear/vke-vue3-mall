@@ -15,6 +15,7 @@ export const constantRoute = [
       {
         path: '/home',
         component: () => import('@/views/home/index.vue'),
+        name: 'home',
         meta: {
           title: '首页',
           hidden: false,
@@ -32,6 +33,16 @@ export const constantRoute = [
       title: '404',
       hidden: true,
       icon: 'DocumentDelete',
+    },
+  },
+  {
+    path: '/login',
+    component: () => import('@/views/login/index.vue'),
+    name: 'login',
+    meta: {
+      title: 'Login',
+      hidden: true,
+      icon: 'Promotion',
     },
   },
 ]

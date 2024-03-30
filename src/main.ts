@@ -8,7 +8,6 @@ import 'element-plus/dist/index.css'
 //svg插件需要配置代码
 import 'virtual:svg-icons-register'
 //引入自定义插件对象:注册整个项目全局组件
-import gloalComponent from '@/components'
 //配置element-plus国际化
 //@ts-expect-error
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
@@ -24,8 +23,6 @@ const app = createApp(App)
 app.use(ElementPlus, {
   locale: zhCn, //element-plus国际化配置
 })
-//安装自定义插件
-app.use(gloalComponent)
 //安装仓库
 app.use(pinia)
 //注册模板路由
