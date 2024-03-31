@@ -13,10 +13,15 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="Home">
+import { onMounted } from 'vue'
 import { getTime } from '@/utils/time'
 import useUserStore from '@/store/modules/user'
 let userStore = useUserStore()
+
+onMounted(() => {
+  userStore.userInfo()
+})
 </script>
 
 <style scoped lang="scss">

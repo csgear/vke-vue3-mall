@@ -15,7 +15,6 @@
         </template>
       </el-menu-item>
     </template>
-    <!-- 有子路由但是只有一个子路由 -->
     <template v-if="item.children && item.children.length == 1">
       <el-menu-item
         :index="item.children[0].path"
@@ -30,7 +29,6 @@
         </template>
       </el-menu-item>
     </template>
-    <!-- 有子路由且个数大于一个1 -->
     <el-sub-menu
       :index="item.path"
       v-if="item.children && item.children.length > 1"
@@ -48,14 +46,10 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-//获取父组件传递过来的全部路由数组
 defineProps(['menuList'])
 
-//获取路由器对象
 let $router = useRouter()
-//点击菜单的回调
 const goRoute = (vc: any) => {
-  //路由跳转
   $router.push(vc.index)
 }
 </script>
