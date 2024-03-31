@@ -1,7 +1,5 @@
-//对外暴露配置路由(常量路由):全部用户都可以访问到的路由
 export const constantRoute = [
   {
-    //登录成功以后展示数据的路由
     path: '/',
     component: () => import('@/layout/index.vue'),
     name: 'layout',
@@ -146,7 +144,7 @@ export const constantRoute = [
   {
     path: '/communication',
     component: () => import('@/layout/index.vue'),
-    name: 'Product',
+    name: 'Communication',
     meta: {
       title: '组件通讯',
       icon: 'Goods',
