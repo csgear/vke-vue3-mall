@@ -25,7 +25,7 @@ export default defineConfig(({ command, mode }) => {
       viteMockServe({
         // default
         mockPath: 'mock',
-        enable: command === 'serve',
+        enable: false,
       }),
     ],
     resolve: {
@@ -49,7 +49,7 @@ export default defineConfig(({ command, mode }) => {
       strictPort: true,
       proxy: {
         [env.VITE_APP_BASE_API]: {
-          target: env.VITE_SERVE,
+          target: 'http://sph-api.atguigu.cn',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ''),
         },
