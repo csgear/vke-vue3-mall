@@ -6,6 +6,7 @@ const request = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API, //基础路径上会携带/api
   timeout: 5000, //超时的时间的设置
 })
+
 request.interceptors.request.use((config) => {
   const userStore = useUserStore()
   if (userStore.token) {
